@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement2D : MonoBehaviour
 {
     public float speed = 5f;
-    public float jumpForce = 20f;
+    public float jumpForce = 30f;
 
     private float moveInput;
     private Rigidbody2D rb;
@@ -34,7 +34,7 @@ public class PlayerMovement2D : MonoBehaviour
     {
         if (context.performed && isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
 
